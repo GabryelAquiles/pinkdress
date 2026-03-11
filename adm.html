@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel Administrativo | Pink Dress</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body class="adm-body">
+
+    <div class="adm-container">
+        <header class="adm-header">
+            <h1>Painel de <span>Gestão</span></h1>
+            <p>Cadastre novos modelos na vitrine da Pink Dress</p>
+        </header>
+
+        <main class="adm-main">
+            <form id="form-produto" class="adm-form">
+                <div class="form-group">
+                    <label>Nome do Vestido</label>
+                    <input type="text" placeholder="Ex: Vestido de Noiva Imperial" required>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Preço (R$)</label>
+                        <input type="text" placeholder="Ex: 4.500,00" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Categoria</label>
+                        <select>
+                            <option>Noiva</option>
+                            <option>Debutante</option>
+                            <option>Festa / Gala</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Link da Imagem (URL)</label>
+                    <input type="url" placeholder="https://linkdaimagem.com/foto.jpg" required>
+                </div>
+
+                <button type="submit" class="btn-adm">Adicionar à Vitrine</button>
+            </form>
+
+            <div class="adm-preview">
+                <h3>Visualização em tempo real</h3>
+                <div id="preview-card">
+                    <p style="color: #999; margin-top: 50px;">Preencha os dados ao lado para ver o preview...</p>
+                </div>
+            </div>
+        </main>
+        
+        <div style="text-align: center; margin-top: 30px;">
+            <a href="index.html" style="text-decoration: none; color: var(--primary); font-size: 0.8rem;">← Voltar para o site</a>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,352 @@
+/* Variáveis de Cores Pink Dress */
+:root {
+    --primary: #d4af37; /* Dourado */
+    --text-dark: #1a1a1a;
+    --text-light: #71717a;
+    --bg-white: #ffffff;
+    --bg-off: #fafafa;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-white);
+    color: var(--text-dark);
+    font-family: 'Montserrat', sans-serif;
+    scroll-behavior: smooth;
+}
+
+/* --- Navbar com Efeito Hover em Tudo --- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 8%;
+    background: rgba(255, 255, 255, 0.95);
+    border-bottom: 1px solid #eee;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    transition: 0.3s;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+}
+
+.nav-links li a {
+    color: var(--text-dark);
+    text-decoration: none;
+    margin-left: 30px;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 400;
+    position: relative; /* Necessário para o efeito da linha embaixo */
+    transition: 0.3s ease; /* Transição suave da cor */
+}
+
+/* Efeito de mudar a cor ao passar o mouse */
+.nav-links li a:hover {
+    color: var(--primary); /* Muda para o dourado */
+}
+
+/* Efeito opcional: Linha elegante que aparece embaixo do link ao passar o mouse */
+.nav-links li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: var(--primary);
+    transition: 0.3s ease;
+}
+
+.nav-links li a:hover::after {
+    width: 100%; /* A linha cresce de 0 a 100% */
+}
+
+/* Hover especial na Logo */
+.logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.logo:hover {
+    opacity: 0.7; /* Leve brilho na logo ao passar o mouse */
+}
+
+/* Hero Section - ATUALIZADO COM SUA IMAGEM */
+.hero {
+    height: 100vh; /* Ocupa a tela inteira para maior impacto */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    
+    /* Imagem que você escolheu com overlay para leitura do texto */
+    background: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)), 
+                url('');
+    
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Efeito Parallax chic */
+}
+
+.hero h1 { 
+    font-family: 'Playfair Display', serif; 
+    font-size: 3.5rem; 
+    margin: 10px 0; 
+    line-height: 1.2;
+}
+
+.hero h1 span { color: var(--primary); }
+
+.hero p {
+    font-size: 1.1rem;
+    color: var(--text-dark);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.btn-primary {
+    display: inline-block;
+    padding: 18px 45px;
+    background: var(--text-dark);
+    color: #fff;
+    text-decoration: none;
+    margin-top: 30px;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    transition: 0.3s;
+}
+
+.btn-primary:hover {
+    background: var(--primary);
+    transform: translateY(-3px);
+}
+
+/* Vitrine e Grid */
+.container { padding: 100px 8%; background: var(--bg-off); }
+.header-section { text-align: center; margin-bottom: 50px; }
+.header-section h2 { font-family: 'Playfair Display', serif; font-size: 2.8rem; }
+
+.product-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    justify-content: center;
+}
+
+/* Card do Produto - Travado em 326x408 */
+.product-card {
+    width: 326px; 
+    background: transparent;
+    transition: 0.4s;
+}
+
+.product-image-container {
+    width: 326px;
+    height: 408px; 
+    position: relative;
+    overflow: hidden;
+    background: #eee;
+    border-radius: 2px;
+}
+
+.product-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    transition: 0.8s ease;
+}
+
+.product-card:hover img { transform: scale(1.08); }
+
+/* Detalhes do Produto - Preço embaixo da imagem */
+.product-info { padding: 20px 0; text-align: left; }
+
+.price-tag {
+    display: block;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--primary);
+    margin-bottom: 5px;
+}
+
+.product-info h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+}
+
+.category {
+    color: var(--text-light);
+    font-size: 0.75rem;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+.btn-wa {
+    display: inline-block;
+    padding: 12px 25px;
+    border: 1px solid var(--text-dark);
+    color: var(--text-dark);
+    text-decoration: none;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: 0.3s;
+}
+
+.btn-wa:hover {
+    background: var(--text-dark);
+    color: #fff;
+}
+
+/* Footer */
+footer { padding: 60px 40px; text-align: center; border-top: 1px solid #eee; background: #fff; }
+footer p { font-size: 0.8rem; color: var(--text-light); }
+
+/* Estilo Específico da Página de Consultoria */
+.consultoria-hero {
+    height: 60vh;
+    background: linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), 
+                url('https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=1500&q=80');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding-top: 80px;
+}
+
+.lista-consultoria {
+    list-style: none;
+    margin: 30px 0;
+}
+
+.lista-consultoria li {
+    margin-bottom: 20px;
+    font-size: 0.95rem;
+    color: var(--text-light);
+    border-left: 3px solid var(--primary);
+    padding-left: 15px;
+}
+
+.active {
+    color: var(--primary) !important;
+    font-weight: 600;
+}
+
+/* Ajuste na seção Detalhes para mobile */
+@media (max-width: 768px) {
+    .consultoria-hero h1 { font-size: 2rem; }
+}
+/* Animação de entrada da página */
+body {
+    animation: fadeInPage 0.8s ease-in-out;
+}
+
+@keyframes fadeInPage {
+    from {
+        opacity: 0;
+        transform: translateY(10px); /* Começa um pouco abaixo */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0); /* Sobe para a posição original */
+    }
+}
+
+/* Suavizar a mudança de cor dos links no Nav (que você já pediu) */
+.nav-links li a {
+    transition: color 0.4s ease, transform 0.3s ease;
+}
+
+.nav-links li a:hover {
+    transform: translateY(-2px); /* O link sobe um pouquinho ao passar o mouse */
+}
+/* --- Estilos Administrativos --- */
+.adm-body {
+    background-color: #f0f0f0; /* Fundo mais escuro para foco no formulário */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.adm-container {
+    background: #fff;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    max-width: 1000px;
+    width: 100%;
+}
+
+.adm-header { text-align: center; margin-bottom: 40px; }
+.adm-header h1 span { color: var(--primary); }
+
+.adm-main {
+    display: flex;
+    gap: 50px;
+    flex-wrap: wrap;
+}
+
+.adm-form { flex: 1; min-width: 300px; }
+.form-group { margin-bottom: 20px; }
+.form-group label { display: block; margin-bottom: 8px; font-weight: 600; font-size: 0.9rem; }
+
+.adm-form input, .adm-form select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.form-row { display: flex; gap: 15px; }
+
+.btn-adm {
+    width: 100%;
+    padding: 15px;
+    background: var(--text-dark);
+    color: #fff;
+    border: none;
+    text-transform: uppercase;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-adm:hover { background: var(--primary); }
+
+.adm-preview {
+    flex: 1;
+    min-width: 300px;
+    background: var(--bg-off);
+    border: 2px dashed #ddd;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
