@@ -3,55 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Consultoria Exclusiva | Pink Dress Fest</title>
+    <title>Consultoria | Pink Dress</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <header>
-        <nav class="navbar">
-            <div class="logo">PINK <span>DRESS</span></div>
-            <ul class="nav-links">
-                <li><a href="index.html">Início</a></li>
-                <li><a href="index.html#vitrine">Coleções</a></li>
-                <li><a href="consultoria.html" class="active">Consultoria</a></li>
-                <li><a href="#sobre">Sobre Nós</a></li>
+<header>
+    <nav class="navbar">
+        <div class="logo">PINK <span>DRESS</span></div>
+        <input type="checkbox" id="menu-check">
+        <label for="menu-check" class="menu-icon">
+            <span></span><span></span><span></span>
+        </label>
+        <ul class="nav-links">
+            <li><a href="index.html">Início</a></li>
+            <li><a href="index.html#vitrine">Coleções</a></li>
+            <li><a href="consultoria.html" class="active">Consultoria</a></li>
+            <li><a href="adm.html">ADM</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section class="container" style="padding-top: 120px;">
+    <div class="sobre-flex">
+        <div class="sobre-text">
+            <h2 style="font-family: 'Playfair Display'; font-size: 2.5rem; margin-bottom: 20px;">Experiência <span style="color:var(--primary)">VIP</span></h2>
+            <p>Não vendemos apenas vestidos, curamos o seu momento especial.</p>
+            <ul class="lista-consultoria">
+                <li>Atendimento com hora marcada</li>
+                <li>Análise de biotipo e cores</li>
+                <li>Espaço reservado para acompanhantes</li>
             </ul>
-        </nav>
-    </header>
-
-    <section class="consultoria-hero">
-        <div class="hero-content">
-            <span class="subtitle">Atendimento Individualizado</span>
-            <h1>Sua Melhor Versão para <br><span>Momentos Únicos.</span></h1>
-            <p>Um encontro exclusivo para entender seus desejos e encontrar o vestido que conta a sua história.</p>
+            <a href="#" class="btn-primary">Agendar Consultoria VIP</a>
         </div>
-    </section>
-
-    <section class="consultoria-detalhes container">
-        <div class="sobre-flex">
-            <div class="sobre-text">
-                <h2>Como funciona?</h2>
-                <p>Nossa consultoria premium é um processo de curadoria focado na sua personalidade e no protocolo do seu evento.</p>
-                
-                <ul class="lista-consultoria">
-                    <li><strong>1. Entrevista de Estilo:</strong> Entendemos o local, horário e sua preferência pessoal.</li>
-                    <li><strong>2. Análise de Biotipo:</strong> Sugerimos cortes que valorizam sua silhueta com conforto.</li>
-                    <li><strong>3. Prova VIP:</strong> Espaço reservado com horário marcado para você e seus acompanhantes.</li>
-                </ul>
-
-                <a href="https://wa.me/5511999999999?text=Quero+agendar+minha+consultoria+VIP" class="btn-primary">Agendar Horário VIP</a>
-            </div>
-            <div class="sobre-img">
-                <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=600&q=80" alt="Consultoria de Moda">
-            </div>
+        <div class="sobre-img">
+            <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=600" alt="Consultoria">
         </div>
-    </section>
+    </div>
+</section>
 
-    <footer>
-        <p>&copy; 2024 Pink Dress Fest &bull; Aquiles Softwares</p>
-    </footer>
-
+<script type="module" src="script.js"></script>
 </body>
 </html>
