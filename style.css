@@ -349,4 +349,81 @@ body {
     flex-direction: column;
     align-items: center;
     padding: 20px;
+
+}
+/* --- Ajustes para Celular (Mobile) --- */
+@media (max-width: 768px) {
+    /* Navbar */
+    .navbar {
+        padding: 15px 5%;
+    }
+
+    .logo {
+        font-size: 1.3rem;
+    }
+
+    .nav-links {
+        display: none; /* Aqui o ideal seria um menu hambúrguer futuramente */
+    }
+
+    /* Hero Section */
+    .hero {
+        height: 60vh; /* Menor no celular para não cansar o scroll */
+        background-attachment: scroll; /* Parallax costuma travar em celulares antigos */
+    }
+
+    .hero h1 {
+        font-size: 2.2rem;
+        padding: 0 20px;
+    }
+
+    /* Vitrine / Grid de Produtos */
+    .container {
+        padding: 60px 5%;
+    }
+
+    .product-grid {
+        gap: 20px;
+    }
+
+    /* Card do Produto - Ajuste para caber 2 por linha ou 1 grande */
+    .product-card, .product-image-container {
+        width: 100%; /* Ocupa a largura disponível */
+        max-width: 350px;
+        height: auto;
+    }
+
+    .product-image-container {
+        height: 450px; /* Mantém uma altura elegante para o vestido */
+    }
+
+    /* Seção Sobre e Consultoria */
+    .sobre-flex {
+        flex-direction: column; /* Empilha imagem e texto */
+        text-align: center;
+        gap: 30px;
+    }
+
+    .sobre-text h2 {
+        font-size: 2rem;
+    }
+
+    .sobre-img img {
+        height: 350px;
+        box-shadow: 10px 10px 0px var(--primary); /* Sombra menor no mobile */
+    }
+
+    /* Painel ADM */
+    .adm-container {
+        padding: 20px;
+    }
+
+    .adm-main {
+        flex-direction: column;
+    }
+
+    .form-row {
+        flex-direction: column;
+        gap: 0;
+    }
 }
