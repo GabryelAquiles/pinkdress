@@ -18,39 +18,50 @@ body {
 }
 
 /* --- Navbar --- */
-/* --- Navbar --- */
+
 .navbar {
-    display: flex; 
-    justify-content: space-between; 
+    display: flex;
+    flex-direction: column; /* Empilha logo e menu no mobile */
     align-items: center;
-    padding: 15px 8%; 
-    background: #fff; 
-    border-bottom: 1px solid #eee;
-    position: fixed; 
-    width: 100%; 
+    padding: 15px 0;
+    background: #fff;
+    border-bottom: 1px solid #f2f2f2;
+    position: fixed;
+    width: 100%;
     z-index: 1000;
 }
 
-.logo { 
-    display: flex; 
-    align-items: center; 
-    font-family: 'Playfair Display', serif; 
-    font-size: 1.4rem; 
-    font-weight: 700; 
-    color: var(--text-dark);
+.logo {
+    display: flex;
+    flex-direction: column; /* Ícone em cima, texto embaixo */
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-bottom: 10px;
 }
 
-.logo-img { 
-    height: 45px; 
-    margin-right: 10px; 
+.logo-img {
+    height: 60px; /* Aumentei a imagem */
+    margin-bottom: 5px;
+    margin-right: 0;
 }
 
-.logo-text-dress { 
-    color: var(--primary); 
-    margin-left: 5px; 
+.logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem; /* Letras maiores */
+    letter-spacing: 3px; /* Espaçamento chic entre letras */
+    text-transform: uppercase;
 }
 
-
+@media (min-width: 769px) {
+    .navbar {
+        flex-direction: row; /* Volta ao normal no PC */
+        justify-content: space-between;
+        padding: 15px 8%;
+    }
+    .logo { flex-direction: row; }
+    .logo-img { height: 50px; margin-right: 15px; margin-bottom: 0; }
+}
 /* --- Botão Voltar (Para páginas internas) --- */
 .btn-back {
     position: fixed; top: 90px; left: 5%; z-index: 900;
