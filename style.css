@@ -23,9 +23,12 @@ body {
     padding: 15px 8%; background: #fff; border-bottom: 1px solid #eee;
     position: fixed; width: 100%; z-index: 1000;
 }
-.logo { display: flex; align-items: center; font-family: 'Playfair Display'; font-size: 1.4rem; font-weight: 700; }
+
+.logo a { 
+    display: flex; align-items: center; text-decoration: none; color: inherit; 
+}
 .logo-img { height: 45px; margin-right: 10px; }
-.logo-text-dress { color: var(--primary); margin-left: 5px; }
+.logo-text-dress { color: var(--primary); margin-left: 5px; font-weight: 700; }
 
 #menu-check { display: none; }
 
@@ -34,7 +37,17 @@ body {
     color: var(--text-dark); text-decoration: none; margin-left: 30px; 
     font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s;
 }
-.nav-links li a:hover { color: var(--primary); }
+.nav-links li a:hover, .nav-links li a.active { color: var(--primary); }
+
+/* --- Botão Voltar (Para páginas internas) --- */
+.btn-back {
+    position: fixed; top: 90px; left: 5%; z-index: 900;
+    background: var(--bg-white); padding: 10px 20px; border-radius: 30px;
+    text-decoration: none; color: var(--text-dark); font-size: 0.8rem;
+    font-weight: 600; box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    display: flex; align-items: center; gap: 8px; border: 1px solid #eee;
+}
+.btn-back:hover { background: var(--primary); color: #fff; border-color: var(--primary); }
 
 /* --- Hero --- */
 .hero {
@@ -58,133 +71,41 @@ body {
 .header-section { text-align: center; margin-bottom: 50px; }
 .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
 .product-link { text-decoration: none; color: inherit; }
-.product-card { background: #fff; transition: 0.3s; border-radius: 8px; overflow: hidden; }
-.product-image-container { height: 400px; overflow: hidden; position: relative; }
+.product-card { background: #fff; transition: 0.3s; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+.product-image-container { height: 400px; overflow: hidden; }
 .product-image-container img { width: 100%; height: 100%; object-fit: cover; transition: 0.6s; }
 .product-card:hover img { transform: scale(1.08); }
 .product-info { padding: 20px; text-align: center; }
 .price-tag { color: var(--primary); font-size: 1.2rem; font-weight: 600; }
 
-/* --- Mobile (3 Retas + Scroll Horizontal) --- */
+/* --- Consultoria --- */
+.consultoria-section { padding: 140px 8% 80px; background: var(--bg-off); min-height: 100vh; }
+.container-flex { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; }
+.titulo-vip { font-family: 'Playfair Display'; font-size: 3rem; margin-bottom: 20px; }
+.destaque-pink { color: var(--primary); }
+.beneficios { display: flex; flex-direction: column; gap: 20px; margin: 30px 0; }
+.item-beneficio { display: flex; gap: 10px; }
+.form-box { background: #fff; padding: 40px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+.consultoria-form { display: flex; flex-direction: column; gap: 15px; }
+.input-group { display: flex; flex-direction: column; gap: 5px; }
+.input-group input, .input-group textarea { padding: 12px; border: 1px solid #ddd; border-radius: 5px; font-family: inherit; }
+
+/* --- Mobile --- */
 @media (max-width: 768px) {
     .navbar { padding: 15px 5%; }
-
-    /* Ícone das 3 retas */
-    .menu-icon {
-        display: flex; flex-direction: column; justify-content: space-between;
-        width: 30px; height: 20px; cursor: pointer; z-index: 1100;
-    }
-    .menu-icon span {
-        display: block; height: 3px; width: 100%; background: var(--text-dark);
-        border-radius: 10px; transition: 0.3s;
-    }
-
-    /* Animação para o X */
+    .menu-icon { display: flex; flex-direction: column; justify-content: space-between; width: 30px; height: 20px; cursor: pointer; z-index: 1100; }
+    .menu-icon span { display: block; height: 3px; width: 100%; background: var(--text-dark); border-radius: 10px; transition: 0.3s; }
+    
     #menu-check:checked ~ .menu-icon span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
     #menu-check:checked ~ .menu-icon span:nth-child(2) { opacity: 0; }
     #menu-check:checked ~ .menu-icon span:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
 
-    /* Menu lateral */
-    .nav-links {
-        position: fixed; top: 0; right: -100%; width: 70%; height: 100vh;
-        background: #fff; flex-direction: column; justify-content: center;
-        align-items: center; gap: 30px; transition: 0.4s; box-shadow: -5px 0 15px rgba(0,0,0,0.1);
-    }
+    .nav-links { position: fixed; top: 0; right: -100%; width: 75%; height: 100vh; background: #fff; flex-direction: column; justify-content: center; align-items: center; gap: 30px; transition: 0.4s; }
     #menu-check:checked ~ .nav-links { right: 0; }
-    .nav-links li a { margin-left: 0; font-size: 1.1rem; font-weight: 600; }
-
-    /* Scroll Horizontal */
-    .product-grid {
-        display: flex; overflow-x: auto; scroll-snap-type: x mandatory;
-        padding: 20px 5%; gap: 15px; scrollbar-width: none;
-    }
-    .product-grid::-webkit-scrollbar { display: none; }
-    .product-card { flex: 0 0 80vw; scroll-snap-align: center; }
     
-    .hero h1 { font-size: 2rem; }
-    .hero { background-attachment: scroll; }
-}
-/* --- Página de Consultoria --- */
-.consultoria-section {
-    padding: 140px 8% 80px;
-    background-color: var(--bg-off);
-    min-height: 100vh;
-}
-
-.container-flex {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 60px;
-    align-items: start;
-}
-
-.titulo-vip {
-    font-family: 'Playfair Display', serif;
-    font-size: 3rem;
-    margin-bottom: 20px;
-}
-
-.destaque-pink { color: var(--primary); }
-
-.subtitulo {
-    font-size: 1.1rem;
-    color: var(--text-light);
-    line-height: 1.6;
-    margin-bottom: 40px;
-}
-
-/* Benefícios */
-.beneficios { display: flex; flex-direction: column; gap: 25px; }
-.item-beneficio { display: flex; gap: 15px; }
-.icon-pink { color: var(--primary); font-size: 1.2rem; font-weight: bold; }
-.item-beneficio strong { display: block; font-size: 1rem; margin-bottom: 3px; }
-.item-beneficio p { font-size: 0.9rem; color: var(--text-light); }
-
-/* Formulário Card */
-.form-box {
-    background: #fff;
-    padding: 40px;
-    border-radius: 15px;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.05);
-}
-
-.form-box h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.8rem;
-    margin-bottom: 10px;
-}
-
-.form-box p {
-    font-size: 0.9rem;
-    color: var(--text-light);
-    margin-bottom: 30px;
-}
-
-.consultoria-form { display: flex; flex-direction: column; gap: 20px; }
-
-.input-group { display: flex; flex-direction: column; gap: 8px; }
-.input-group label { font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
-
-.input-group input, .input-group textarea {
-    padding: 12px 15px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 1rem;
-    outline: none;
-    transition: 0.3s;
-}
-
-.input-group input:focus, .input-group textarea:focus {
-    border-color: var(--primary);
-}
-
-.full-width { width: 100%; cursor: pointer; }
-
-/* Mobile Consultoria */
-@media (max-width: 900px) {
+    .product-grid { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; padding: 20px 5%; gap: 15px; }
+    .product-card { flex: 0 0 80vw; scroll-snap-align: center; }
     .container-flex { grid-template-columns: 1fr; }
-    .consultoria-section { padding-top: 100px; }
-    .titulo-vip { font-size: 2.2rem; }
-    .form-box { padding: 25px; }
+    .hero h1 { font-size: 2rem; }
+    .btn-back { top: 80px; left: 5%; padding: 8px 15px; }
 }
