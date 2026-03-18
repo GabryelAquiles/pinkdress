@@ -132,3 +132,27 @@ body {
     .product-grid { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; padding: 20px; gap: 15px; }
     .product-card { flex: 0 0 85vw; scroll-snap-align: center; }
 }
+
+/* Remove o azul padrão e o sublinhado dos links dos produtos */
+.product-link {
+    text-decoration: none;
+    color: var(--text-dark); /* Usa o preto (#1a1a1a) que definimos no :root */
+    display: block;
+}
+
+.product-link:hover {
+    color: var(--text-dark); /* Garante que continue preto ao passar o mouse */
+}
+
+.product-info h3 {
+    color: var(--text-dark); /* Nome do vestido em preto */
+    margin: 10px 0 5px;
+    font-family: 'Playfair Display', serif;
+}
+
+.category {
+    color: var(--text-light); /* Categoria em cinza para dar contraste */
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
