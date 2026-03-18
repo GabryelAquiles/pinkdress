@@ -85,3 +85,63 @@ body {
     
     .hero { background-attachment: scroll; }
 }
+/* ... (mantenha as variáveis e o topo do CSS igual) ... */
+
+/* MELHORIA NA NAVBAR MOBILE */
+@media (max-width: 768px) {
+    .navbar { 
+        padding: 10px 5%; 
+        height: 70px;
+    }
+
+    /* Menu Lateral Estilo "Drawer" */
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 75%; /* Não ocupa a tela toda para dar profundidade */
+        height: 100vh;
+        background: #fff;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        box-shadow: -10px 0 30px rgba(0,0,0,0.1);
+        z-index: 999;
+    }
+
+    .nav-links li { margin: 25px 0; }
+    .nav-links li a { font-size: 1.1rem; font-weight: 600; }
+
+    /* Ajuste do Hero para telas verticais */
+    .hero { 
+        background-attachment: scroll; /* Evita bugs de rolagem no iOS */
+        padding: 0 20px;
+    }
+    
+    .hero h1 { 
+        font-size: 1.8rem; /* Texto menor para não quebrar feio */
+        letter-spacing: 1px;
+    }
+
+    /* SCROLL HORIZONTAL PREMIUM */
+    .product-grid {
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        gap: 15px;
+        padding: 20px 5%; /* Alinhado com a margem da logo */
+        scrollbar-width: none; /* Firefox */
+    }
+
+    .product-grid::-webkit-scrollbar { display: none; } /* Chrome/Safari */
+
+    .product-card {
+        flex: 0 0 75vw; /* Mostra 75% do card e um pedaço do próximo */
+        scroll-snap-align: center;
+    }
+
+    .product-image-container {
+        height: 380px; /* Mais alto para destacar o corte do vestido */
+        border-radius: 12px; /* Bordas arredondadas dão toque moderno */
+    }
+}
