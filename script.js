@@ -7,6 +7,27 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         });
     });
 });
+const menuCheck = document.getElementById('menu-check');
+const navLinks = document.querySelectorAll('.nav-links li a');
+
+// Fecha o menu mobile quando clica em qualquer link
+navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+        menuCheck.checked = false;
+    });
+});
+
+// Efeito de opacidade na Navbar ao rolar (Dá um ar luxuoso)
+window.addEventListener('scroll', () => {
+    const navbar = document.querySelector('.navbar');
+    if (window.scrollY > 50) {
+        navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+        navbar.style.padding = '10px 8%'; // Dá uma leve "encolhida"
+    } else {
+        navbar.style.background = '#fff';
+        navbar.style.padding = '15px 8%';
+    }
+});
 
 // Exemplo de como você vai buscar os dados do Firebase depois:
 /*
