@@ -18,26 +18,38 @@ body {
 }
 
 /* --- Navbar --- */
+/* --- Navbar --- */
 .navbar {
-    display: flex; justify-content: space-between; align-items: center;
-    padding: 15px 8%; background: #fff; border-bottom: 1px solid #eee;
-    position: fixed; width: 100%; z-index: 1000;
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
+    padding: 15px 8%; 
+    background: #fff; 
+    border-bottom: 1px solid #eee;
+    position: fixed; 
+    width: 100%; 
+    z-index: 1000;
 }
 
-.logo a { 
-    display: flex; align-items: center; text-decoration: none; color: inherit; 
+.logo { 
+    display: flex; 
+    align-items: center; 
+    font-family: 'Playfair Display', serif; 
+    font-size: 1.4rem; 
+    font-weight: 700; 
+    color: var(--text-dark);
 }
-.logo-img { height: 45px; margin-right: 10px; }
-.logo-text-dress { color: var(--primary); margin-left: 5px; font-weight: 700; }
 
-#menu-check { display: none; }
-
-.nav-links { display: flex; list-style: none; }
-.nav-links li a { 
-    color: var(--text-dark); text-decoration: none; margin-left: 30px; 
-    font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s;
+.logo-img { 
+    height: 45px; 
+    margin-right: 10px; 
 }
-.nav-links li a:hover, .nav-links li a.active { color: var(--primary); }
+
+.logo-text-dress { 
+    color: var(--primary); 
+    margin-left: 5px; 
+}
+
 
 /* --- Botão Voltar (Para páginas internas) --- */
 .btn-back {
