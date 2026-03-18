@@ -17,6 +17,39 @@
             .product-detail-container { grid-template-columns: 1fr; padding: 100px 5% 50px; text-align: center; }
             .detail-info h1 { font-size: 2rem; }
         }
+        <style>
+    /* ... seus estilos anteriores ... */
+
+    @media (max-width: 768px) {
+        .product-detail-container {
+            padding: 90px 5% 40px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .detail-img {
+            order: 1; /* Imagem primeiro */
+            margin-bottom: 20px;
+        }
+
+        .detail-info {
+            order: 2; /* Texto depois */
+            text-align: left; /* Alinhamento à esquerda é mais fácil de ler */
+        }
+
+        .detail-info h1 { font-size: 1.8rem; }
+        
+        /* Botão Flutuante ou de destaque */
+        .btn-primary {
+            width: 100%;
+            text-align: center;
+            padding: 20px;
+            position: sticky; /* Opcional: faz o botão "grudar" embaixo */
+            bottom: 20px;
+            box-shadow: 0 10px 20px rgba(255, 105, 180, 0.3);
+        }
+    }
+</style>
     </style>
 </head>
 <body>
