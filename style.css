@@ -1,257 +1,87 @@
-/* Variáveis de Cores Pink Dress - VERSÃO PINK PREMIUM */
+/* Variáveis */
 :root {
-    --primary: #ff69b4; /* Rosa Vibrante (Hot Pink) */
+    --primary: #ff69b4;
     --primary-hover: #ff1493; 
     --text-dark: #1a1a1a;
     --text-light: #71717a;
     --bg-white: #ffffff;
     --bg-off: #fafafa;
-    --overlay-pink: rgba(255, 105, 180, 0.15); 
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
     background-color: var(--bg-white);
     color: var(--text-dark);
     font-family: 'Montserrat', sans-serif;
     scroll-behavior: smooth;
-    animation: fadeInPage 0.8s ease-in-out;
     overflow-x: hidden;
 }
 
-@keyframes fadeInPage {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-/* --- Navbar Responsiva --- */
+/* Navbar */
 .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 8%;
-    background: rgba(255, 255, 255, 0.98);
-    border-bottom: 1px solid #eee;
-    position: fixed;
-    width: 100%;
-    z-index: 1000;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 15px 8%; background: #fff; border-bottom: 1px solid #eee;
+    position: fixed; width: 100%; z-index: 1000;
+}
+.logo { display: flex; align-items: center; font-family: 'Playfair Display'; font-size: 1.4rem; font-weight: 700; }
+.logo-img { height: 45px; margin-right: 10px; }
+.logo-text-dress { color: var(--primary); margin-left: 5px; }
+
+.nav-links { display: flex; list-style: none; }
+.nav-links li a { 
+    color: var(--text-dark); text-decoration: none; margin-left: 30px; 
+    font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px;
 }
 
-.logo {
-    display: flex;
-    align-items: center;
-    font-family: 'Playfair Display', serif;
-    font-size: 1.4rem;
-    font-weight: 700;
-    letter-spacing: 1px;
-    color: var(--text-dark);
-}
-
-.logo-img {
-    height: 45px;
-    width: auto;
-    margin-right: 10px;
-}
-
-.logo-text-dress { 
-    color: var(--primary);
-    margin-left: 5px;
-}
-
-.nav-links {
-    display: flex;
-    list-style: none;
-    transition: 0.4s ease;
-}
-
-.nav-links li a {
-    color: var(--text-dark);
-    text-decoration: none;
-    margin-left: 30px;
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    transition: 0.3s;
-}
-
-.nav-links li a:hover, .nav-links li a.active { color: var(--primary); }
-
-#menu-check { display: none; }
-.menu-icon { display: none; cursor: pointer; }
-
-/* --- Hero Section --- */
+/* Hero */
 .hero {
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    background: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 105, 180, 0.1)), 
-                url('https://www.psicologo.com.br/wp-content/uploads/casamento-feliz-um-guia-para-casamentos-felizes-2048x1157.jpg'); 
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
+    height: 100vh; display: flex; align-items: center; justify-content: center;
+    text-align: center; background: linear-gradient(rgba(255,255,255,0.3), rgba(255,105,180,0.1)), 
+    url('https://www.psicologo.com.br/wp-content/uploads/casamento-feliz-um-guia-para-casamentos-felizes-2048x1157.jpg');
+    background-size: cover; background-position: center; background-attachment: fixed;
 }
-
-.hero h1 { 
-    font-family: 'Playfair Display', serif; 
-    font-size: 3.5rem; 
-    line-height: 1.2; 
-    padding: 0 20px;
-}
-
+.hero h1 { font-family: 'Playfair Display'; font-size: 3.5rem; }
 .hero h1 span { color: var(--primary); }
 
+/* Botões */
 .btn-primary {
-    display: inline-block;
-    margin-top: 25px;
-    padding: 18px 45px;
-    background: var(--text-dark);
-    color: #fff;
-    text-decoration: none;
-    text-transform: uppercase;
-    font-size: 0.8rem;
-    font-weight: 600;
-    letter-spacing: 2px;
-    transition: 0.3s;
-    border: 1px solid var(--text-dark);
+    display: inline-block; padding: 18px 45px; background: var(--text-dark);
+    color: #fff; text-decoration: none; text-transform: uppercase; font-weight: 600;
+    font-size: 0.8rem; letter-spacing: 2px; transition: 0.3s; border: 1px solid var(--text-dark);
 }
+.btn-primary:hover { background: var(--primary); border-color: var(--primary); transform: translateY(-3px); }
 
-.btn-primary:hover { 
-    background: var(--primary); 
-    border-color: var(--primary);
-    transform: translateY(-3px); 
-}
-
-/* --- Vitrine Estilo Grife --- */
+/* Vitrine */
 .container { padding: 80px 8%; background: var(--bg-off); }
 .header-section { text-align: center; margin-bottom: 50px; }
-.header-section h2 { font-family: 'Playfair Display', serif; font-size: 2.5rem; }
 
-/* Desktop Grid */
 .product-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-    justify-items: center;
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px; justify-items: center;
 }
 
-.product-card { 
-    width: 100%; 
-    max-width: 326px; 
-    transition: transform 0.3s ease;
-}
+.product-link { text-decoration: none; color: inherit; display: block; width: 100%; }
 
-.product-image-container {
-    width: 100%;
-    height: 400px;
-    overflow: hidden;
-    position: relative;
-    background-color: #eee;
-}
-
-.product-image-container img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.6s ease;
-}
-
+.product-card { width: 100%; max-width: 326px; transition: 0.3s; }
+.product-image-container { height: 400px; overflow: hidden; position: relative; background: #eee; }
+.product-image-container img { width: 100%; height: 100%; object-fit: cover; transition: 0.6s; }
 .product-card:hover img { transform: scale(1.08); }
-
-.product-image-container::after {
-    content: 'Ver Detalhes';
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background: rgba(255, 105, 180, 0.2);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-size: 0.8rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    opacity: 0;
-    transition: 0.3s;
-}
-
-.product-card:hover .product-image-container::after { opacity: 1; }
 
 .product-info { padding: 20px 0; text-align: center; }
 .price-tag { color: var(--primary); font-size: 1.2rem; font-weight: 600; }
 
-/* --- AJUSTES MOBILE (MENU + HORIZONTAL SCROLL) --- */
+/* Mobile */
 @media (max-width: 768px) {
     .navbar { padding: 10px 5%; }
-
-    .menu-icon { 
-        display: block; 
-        position: relative;
-        z-index: 1100;
-        width: 30px;
-        height: 20px;
-    }
-    
-    .menu-icon span {
-        display: block;
-        width: 100%;
-        height: 2px;
-        background: var(--text-dark);
-        margin-bottom: 6px;
-        transition: 0.3s;
-    }
-
-    .nav-links {
-        position: fixed;
-        top: 0;
-        right: -100%;
-        width: 80%;
-        height: 100vh;
-        background: #fff;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        box-shadow: -5px 0 15px rgba(0,0,0,0.1);
-    }
-
-    .nav-links li { margin: 20px 0; }
-    .nav-links li a { margin: 0; font-size: 1.2rem; }
-
-    #menu-check:checked ~ .nav-links {
-        right: 0;
-    }
-
-    /* MÁGICA DO SCROLL HORIZONTAL */
-    .product-grid {
-        display: flex; /* Muda de grid para flex */
-        overflow-x: auto; /* Ativa scroll lateral */
-        scroll-snap-type: x mandatory; /* Faz o "imã" no card */
-        gap: 20px;
-        padding: 20px 10px;
-        justify-content: flex-start;
-        -webkit-overflow-scrolling: touch; /* Scroll suave no iOS */
-    }
-
-    /* Esconde a barra de rolagem para um visual limpo */
-    .product-grid::-webkit-scrollbar {
-        display: none;
-    }
-
-    .product-card {
-        flex: 0 0 280px; /* Largura fixa de cada card no mobile */
-        scroll-snap-align: center; /* Centraliza o card ao deslizar */
-        max-width: none;
-    }
-
     .hero h1 { font-size: 2.2rem; }
-    .hero { background-attachment: scroll; }
     
-    .container { padding: 40px 0 40px 5%; } /* Padding lateral ajustado para o scroll */
-    .product-image-container { height: 350px; }
+    .product-grid {
+        display: flex; overflow-x: auto; scroll-snap-type: x mandatory;
+        gap: 20px; padding: 20px 5%;
+    }
+    .product-grid::-webkit-scrollbar { display: none; }
+    .product-card { flex: 0 0 280px; scroll-snap-align: center; }
+    
+    .hero { background-attachment: scroll; }
 }
