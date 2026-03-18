@@ -6,50 +6,109 @@
     <title>Detalhes do Produto | Pink Dress</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    
     <style>
-        .product-detail-container { padding: 120px 8% 80px; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
-        .detail-img img { width: 100%; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
-        .detail-info h1 { font-family: 'Playfair Display'; font-size: 2.8rem; margin-bottom: 15px; }
-        .detail-price { color: var(--primary); font-size: 2rem; font-weight: 700; margin-bottom: 25px; display: block; }
-        .detail-desc { line-height: 1.8; color: var(--text-light); margin-bottom: 40px; font-size: 1.1rem; }
-        
-        @media (max-width: 768px) {
-            .product-detail-container { grid-template-columns: 1fr; padding: 100px 5% 50px; text-align: center; }
-            .detail-info h1 { font-size: 2rem; }
+        /* Container Principal */
+        .product-detail-container { 
+            padding: 120px 8% 80px; 
+            display: grid; 
+            grid-template-columns: 1fr 1fr; 
+            gap: 60px; 
+            align-items: flex-start; 
         }
-        <style>
-    /* ... seus estilos anteriores ... */
 
-    @media (max-width: 768px) {
-        .product-detail-container {
-            padding: 90px 5% 40px;
+        .detail-img img { 
+            width: 100%; 
+            border-radius: 12px; 
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1); 
+        }
+
+        .detail-info h1 { 
+            font-family: 'Playfair Display'; 
+            font-size: 2.8rem; 
+            margin-bottom: 15px; 
+            color: var(--text-dark);
+        }
+
+        .detail-price { 
+            color: var(--primary); 
+            font-size: 2rem; 
+            font-weight: 700; 
+            margin-bottom: 25px; 
+            display: block; 
+        }
+
+        .detail-desc { 
+            line-height: 1.8; 
+            color: var(--text-light); 
+            margin-bottom: 30px; 
+            font-size: 1.1rem; 
+        }
+
+        /* Grupo de Botões (Ações) */
+        .product-actions {
             display: flex;
             flex-direction: column;
+            gap: 15px;
         }
 
-        .detail-img {
-            order: 1; /* Imagem primeiro */
-            margin-bottom: 20px;
-        }
-
-        .detail-info {
-            order: 2; /* Texto depois */
-            text-align: left; /* Alinhamento à esquerda é mais fácil de ler */
-        }
-
-        .detail-info h1 { font-size: 1.8rem; }
-        
-        /* Botão Flutuante ou de destaque */
-        .btn-primary {
-            width: 100%;
-            text-align: center;
+        .btn-whatsapp {
+            background-color: #25D366; /* Verde oficial para confiança */
+            color: white;
+            text-decoration: none;
             padding: 20px;
-            position: sticky; /* Opcional: faz o botão "grudar" embaixo */
-            bottom: 20px;
-            box-shadow: 0 10px 20px rgba(255, 105, 180, 0.3);
+            border-radius: 8px;
+            text-align: center;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: 0.3s;
         }
-    }
-</style>
+
+        .btn-whatsapp:hover {
+            background-color: #128c7e;
+            transform: translateY(-2px);
+        }
+
+        /* Botão Voltar Estilizado */
+        .btn-back-link {
+            text-align: center;
+            text-decoration: none;
+            color: var(--text-light);
+            font-size: 0.9rem;
+            font-weight: 600;
+            padding: 10px;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .btn-back-link:hover {
+            color: var(--primary);
+        }
+
+        /* Ajustes Mobile */
+        @media (max-width: 768px) {
+            .product-detail-container { 
+                grid-template-columns: 1fr; 
+                padding: 100px 5% 50px; 
+            }
+            
+            .detail-info { text-align: left; }
+            .detail-info h1 { font-size: 2rem; }
+
+            .product-actions {
+                position: sticky;
+                bottom: 20px;
+                background: rgba(255,255,255,0.9);
+                padding: 15px;
+                border-radius: 15px;
+                backdrop-filter: blur(10px);
+                box-shadow: 0 -10px 20px rgba(0,0,0,0.05);
+            }
+        }
     </style>
 </head>
 <body>
@@ -60,9 +119,6 @@
             <img src="488578531_2032792070558680_6941908533414280762_n.jpg" alt="Logo" class="logo-img">
             PINK <span class="logo-text-dress">DRESS</span>
         </div>
-        <ul class="nav-links">
-            <li><a href="index.html">Voltar para Vitrine</a></li>
-        </ul>
     </nav>
 </header>
 
@@ -70,11 +126,21 @@
     <div class="detail-img">
         <img id="main-img" src="" alt="Carregando imagem...">
     </div>
+    
     <div class="detail-info">
         <h1 id="product-title">Carregando...</h1>
         <span class="detail-price" id="product-price"></span>
         <p class="detail-desc" id="product-desc"></p>
-        <a href="#" id="whatsapp-btn" target="_blank" class="btn-primary">Consultar via WhatsApp</a>
+        
+        <div class="product-actions">
+            <a href="#" id="whatsapp-btn" target="_blank" class="btn-whatsapp">
+                Consultar via WhatsApp
+            </a>
+            
+            <a href="index.html" class="btn-back-link">
+                ← Voltar para a Vitrine
+            </a>
+        </div>
     </div>
 </section>
 
@@ -89,14 +155,14 @@
         "silk-blue": {
             titulo: "Vestido Silk Blue",
             preco: "R$ 950,00",
-            desc: "Fluidez e sofisticação em seda pura. Ideal para eventos ao ar livre e ocasiões que pedem leveza.",
+            desc: "Fluidez e sofisticação em seda pura. Ideal para eventos ao ar livre e ocasiões que pedem leveza e movimento.",
             imagem: "https://images.unsplash.com/photo-1595777457583-95e059d581b8?q=80&w=800"
         },
         "black-velvet": {
             titulo: "Vestido Black Velvet",
             preco: "R$ 1.200,00",
-            desc: "O clássico que nunca falha. Veludo de alta qualidade com corte acinturado para realçar sua silhueta.",
-            imagem: "https://images.unsplash.com/photo-1539008835657-9e8e9680fe0a?q=80&w=800"
+            desc: "O clássico que nunca falha. Veludo de alta qualidade com corte acinturado para realçar sua silhueta com elegância.",
+            imagem: "https://www.deliriyou.com.br/app-deliriyou/assets/images/dinamica/produto/457/cor_0/03062-vestido-black-longo-210120-e95854.jpg"
         }
     };
 
