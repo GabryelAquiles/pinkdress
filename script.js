@@ -1,25 +1,93 @@
+
+const database = {
+    "imperial-gold": {
+        titulo: "Vestido Imperial Gold",
+        preco: "R$ 1.800,00",
+        desc: "Vestido de gala exclusivo em cetim premium com bordados feitos à mão. O brilho que você precisa para uma noite inesquecível.",
+        imagem: "https://images.unsplash.com/photo-1566174053879-31528523f8ae?q=80&w=800"
+    },
+    "silk-blue": {
+        titulo: "Vestido Silk Blue",
+        preco: "R$ 950,00",
+        desc: "Fluidez e sofisticação em seda pura. Ideal para eventos ao ar livre e ocasiões que pedem leveza e movimento.",
+        imagem: "https://images.unsplash.com/photo-1595777457583-95e059d581b8?q=80&w=800"
+    },
+    "black-velvet": {
+        titulo: "Vestido Black Velvet",
+        preco: "R$ 1.200,00",
+        desc: "O clássico que nunca falha. Veludo de alta qualidade com corte acinturado para realçar sua silhueta com elegância.",
+        imagem: "https://images.unsplash.com/photo-1539008835657-9e8e9680fe0a?q=80&w=800"
+    }
+};
+
+// 2. CONTROLE DO MENU MOBILE (Três Retas)
 const menuCheck = document.getElementById('menu-check');
 const navLinks = document.querySelectorAll('.nav-links a');
 
-// Fecha o menu ao clicar em um link (Início, Coleções, etc)
-navLinks.forEach(link => {
-    link.addEventListener('click', () => {
-        menuCheck.checked = false;
+// Fecha o menu automaticamente ao clicar em qualquer link de navegação
+if (menuCheck) {
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            menuCheck.checked = false;
+        });
     });
-});
+}
 
-// Scroll suave para links internos
+// 3. LÓGICA DA PÁGINA DE DETALHES (produto.html)
+// Executa apenas se estivermos na página de produto
+if (window.location.pathname.includes('produto.html')) {
+    const params = new URLSearchParams(window.location.search);
+    const itemKey = params.get('item');
+
+    if (itemKey && database[itemKey]) {
+        const item = database[itemKey];
+        
+        // Preenche os campos da página com os dados do "banco"
+        document.getElementById('product-title').innerText = item.titulo;
+        document.getElementById('product-price').innerText = item.preco;
+        document.getElementById('product-desc').innerText = item.desc;
+        document.getElementById('main-img').src = item.imagem;
+        document.getElementById('main-img').alt = item.titulo;
+        
+        // Configura o botão do WhatsApp com mensagem personalizada
+        const whatsappBtn = document.getElementById('whatsapp-btn');
+        if (whatsappBtn) {
+            const numeroTelefone = "5500000000000"; // SUBSTITUA PELO SEU NÚMERO
+            const mensagem = encodeURIComponent(`Olá! Vi no site e tenho interesse no ${item.titulo}. Poderia me passar mais informações?`);
+            whatsappBtn.href = `https://wa.me/${numeroTelefone}?text=${mensagem}`;
+        }
+    } else {
+        // Se o produto não existir, volta para a vitrine
+        window.location.href = "index.html";
+    }
+}
+
+// 4. SCROLL SUAVE
+// Faz a página deslizar suavemente ao clicar em links como "#vitrine"
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
-        if(this.getAttribute('href').startsWith("#")) {
+        const href = this.getAttribute('href');
+        if (href.startsWith("#") && href.length > 1) {
             e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if(target) {
+            const target = document.querySelector(href);
+            if (target) {
                 target.scrollIntoView({ behavior: 'smooth' });
             }
         }
     });
 });
+
+// 5. EFEITO DE NAVBAR AO ROLAR
+window.addEventListener('scroll', () => {
+    const navbar = document.querySelector('.navbar');
+    if (window.scrollY > 50) {
+        navbar.style.boxShadow = "0 4px 15px rgba(0,0,0,0.05)";
+    } else {
+        navbar.style.boxShadow = "none";
+    }
+});
+
+console.log("Pink Dress Fest: Sistema carregado.");
 // Exemplo de como você vai buscar os dados do Firebase depois:
 /*
 function carregarProdutos() {
