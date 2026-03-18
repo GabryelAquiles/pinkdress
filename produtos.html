@@ -7,98 +7,46 @@
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
-        /* CSS Específico para a Vitrine se não quiser usar arquivo externo agora */
         body { background-color: #050505; color: #fff; font-family: 'Inter', sans-serif; margin: 0; }
-        .container { padding: 100px 5% 50px; }
+        .logo-container { text-align: center; padding-top: 40px; }
+        .logo-main { height: 80px; width: auto; filter: drop-shadow(0 0 5px rgba(255,105,180,0.5)); }
+        .container { padding: 40px 5% 50px; }
         .section-title { font-family: 'Bebas Neue', sans-serif; font-size: 3rem; text-align: center; margin-bottom: 50px; letter-spacing: 2px; }
-        .section-title span { color: #2563eb; }
-        
-        .product-grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
-            gap: 40px; 
-        }
-
-        .product-card { 
-            background: #0a0a0a; 
-            border: 1px solid #1a1a1a; 
-            position: relative; 
-            transition: 0.4s ease; 
-        }
-        
-        .product-card:hover { border-color: #2563eb; transform: translateY(-10px); }
-
+        .section-title span { color: #ff69b4; } /* Cor rosa Pink Dress */
+        .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
+        .product-card { background: #0a0a0a; border: 1px solid #1a1a1a; position: relative; transition: 0.4s ease; }
+        .product-card:hover { border-color: #ff69b4; transform: translateY(-10px); }
         .product-image { position: relative; width: 100%; overflow: hidden; background: #111; }
         .product-image img { width: 100%; height: auto; display: block; filter: grayscale(20%); transition: 0.5s; }
         .product-card:hover .product-image img { filter: grayscale(0%); transform: scale(1.05); }
-
-        .badge { 
-            position: absolute; top: 15px; left: 15px; background: #2563eb; color: #fff; 
-            padding: 5px 15px; font-family: 'Bebas Neue', sans-serif; font-size: 1rem; z-index: 10; 
-        }
-
+        .badge { position: absolute; top: 15px; left: 15px; background: #ff69b4; color: #fff; padding: 5px 15px; font-family: 'Bebas Neue', sans-serif; font-size: 1rem; z-index: 10; }
         .product-info { padding: 25px; text-align: left; }
         .product-info h3 { font-family: 'Bebas Neue', sans-serif; font-size: 1.8rem; margin: 0 0 10px; letter-spacing: 1px; }
         .product-info .desc { color: #a1a1aa; font-size: 0.9rem; margin-bottom: 15px; font-weight: 300; line-height: 1.4; }
         .product-info .price { color: #fff; font-size: 1.5rem; font-weight: 700; margin-bottom: 20px; display: block; }
-        
-        .btn-buy { 
-            display: block; width: 100%; padding: 15px; background: #fff; color: #000; 
-            text-align: center; text-decoration: none; font-weight: 700; text-transform: uppercase; 
-            letter-spacing: 1px; font-size: 0.9rem; transition: 0.3s; 
-        }
-        .btn-buy:hover { background: #2563eb; color: #fff; }
-
+        .btn-buy { display: block; width: 100%; padding: 15px; background: #fff; color: #000; text-align: center; text-decoration: none; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; font-size: 0.9rem; transition: 0.3s; }
+        .btn-buy:hover { background: #ff69b4; color: #fff; }
         @media (max-width: 768px) { .section-title { font-size: 2.2rem; } }
     </style>
 </head>
 <body>
-
+    <div class="logo-container">
+        <img src="488578531_2032792070558680_6941908533414280762_n.jpg" alt="Logo" class="logo-main">
+    </div>
     <section class="container">
         <h2 class="section-title">NOSSOS <span>DROPS</span></h2>
-
         <div class="product-grid" id="product-list">
-            
             <article class="product-card">
                 <div class="badge">LIMITADO</div>
-                <div class="product-image">
-                    <img src="https://via.placeholder.com/600x800/111/fff?text=OVERSIZED+V1" alt="Camiseta Oversized">
-                </div>
+                <div class="product-image"><img src="https://via.placeholder.com/600x800/111/fff?text=OVERSIZED+V1" alt="Camiseta"></div>
                 <div class="product-info">
                     <h3>Oversized "Arch" Black</h3>
-                    <p class="desc">100% Algodão Premium. Modelagem streetwear autêntica com gola canelada.</p>
+                    <p class="desc">100% Algodão Premium.</p>
                     <span class="price">R$ 149,90</span>
-                    <a href="https://wa.me/5511999999999?text=Quero+reservar+a+Oversized+Arch+Black" class="btn-buy">Ver Disponibilidade</a>
+                    <a href="#" class="btn-buy">Ver Disponibilidade</a>
                 </div>
             </article>
-
-            <article class="product-card">
-                <div class="badge">NOVIDADE</div>
-                <div class="product-image">
-                    <img src="https://via.placeholder.com/600x800/111/fff?text=HOODIE+V1" alt="Moletom Hoodie">
-                </div>
-                <div class="product-info">
-                    <h3>Hoodie "Night" Edition</h3>
-                    <p class="desc">Moletom pesado com interior flanelado. Estampa em silk screen de alta densidade.</p>
-                    <span class="price">R$ 279,90</span>
-                    <a href="https://wa.me/5511999999999?text=Quero+reservar+o+Hoodie+Night+Edition" class="btn-buy">Ver Disponibilidade</a>
-                </div>
-            </article>
-
-            <article class="product-card">
-                <div class="product-image">
-                    <img src="https://via.placeholder.com/600x800/111/fff?text=CARGO+PANTS" alt="Calça Cargo">
-                </div>
-                <div class="product-info">
-                    <h3>Calça Cargo Techwear</h3>
-                    <p class="desc">Tecido ripstop militar com 6 bolsos funcionais e ajuste no tornozelo.</p>
-                    <span class="price">R$ 210,00</span>
-                    <a href="https://wa.me/5511999999999?text=Quero+reservar+a+Calça+Cargo" class="btn-buy">Ver Disponibilidade</a>
-                </div>
-            </article>
-
         </div>
     </section>
-
 </body>
 </html>
