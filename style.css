@@ -104,3 +104,87 @@ body {
     .hero h1 { font-size: 2rem; }
     .hero { background-attachment: scroll; }
 }
+/* --- Página de Consultoria --- */
+.consultoria-section {
+    padding: 140px 8% 80px;
+    background-color: var(--bg-off);
+    min-height: 100vh;
+}
+
+.container-flex {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: start;
+}
+
+.titulo-vip {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.destaque-pink { color: var(--primary); }
+
+.subtitulo {
+    font-size: 1.1rem;
+    color: var(--text-light);
+    line-height: 1.6;
+    margin-bottom: 40px;
+}
+
+/* Benefícios */
+.beneficios { display: flex; flex-direction: column; gap: 25px; }
+.item-beneficio { display: flex; gap: 15px; }
+.icon-pink { color: var(--primary); font-size: 1.2rem; font-weight: bold; }
+.item-beneficio strong { display: block; font-size: 1rem; margin-bottom: 3px; }
+.item-beneficio p { font-size: 0.9rem; color: var(--text-light); }
+
+/* Formulário Card */
+.form-box {
+    background: #fff;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.05);
+}
+
+.form-box h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+.form-box p {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    margin-bottom: 30px;
+}
+
+.consultoria-form { display: flex; flex-direction: column; gap: 20px; }
+
+.input-group { display: flex; flex-direction: column; gap: 8px; }
+.input-group label { font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
+
+.input-group input, .input-group textarea {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    outline: none;
+    transition: 0.3s;
+}
+
+.input-group input:focus, .input-group textarea:focus {
+    border-color: var(--primary);
+}
+
+.full-width { width: 100%; cursor: pointer; }
+
+/* Mobile Consultoria */
+@media (max-width: 900px) {
+    .container-flex { grid-template-columns: 1fr; }
+    .consultoria-section { padding-top: 100px; }
+    .titulo-vip { font-size: 2.2rem; }
+    .form-box { padding: 25px; }
+}
