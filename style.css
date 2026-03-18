@@ -1,7 +1,7 @@
 /* Variáveis de Cores Pink Dress - VERSÃO PINK PREMIUM */
 :root {
     --primary: #ff69b4; /* Rosa Vibrante (Hot Pink) */
-    --primary-hover: #ff1493; /* Rosa mais escuro para efeitos */
+    --primary-hover: #ff1493; 
     --text-dark: #1a1a1a;
     --text-light: #71717a;
     --bg-white: #ffffff;
@@ -21,7 +21,7 @@ body {
     font-family: 'Montserrat', sans-serif;
     scroll-behavior: smooth;
     animation: fadeInPage 0.8s ease-in-out;
-    overflow-x: hidden; /* Evita scroll lateral no celular */
+    overflow-x: hidden;
 }
 
 @keyframes fadeInPage {
@@ -81,7 +81,6 @@ body {
 
 .nav-links li a:hover, .nav-links li a.active { color: var(--primary); }
 
-/* Hamburguer Escondido por padrão */
 #menu-check { display: none; }
 .menu-icon { display: none; cursor: pointer; }
 
@@ -134,6 +133,7 @@ body {
 .header-section { text-align: center; margin-bottom: 50px; }
 .header-section h2 { font-family: 'Playfair Display', serif; font-size: 2.5rem; }
 
+/* Desktop Grid */
 .product-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -186,11 +186,10 @@ body {
 .product-info { padding: 20px 0; text-align: center; }
 .price-tag { color: var(--primary); font-size: 1.2rem; font-weight: 600; }
 
-/* --- AJUSTES MOBILE (A MÁGICA ACONTECE AQUI) --- */
+/* --- AJUSTES MOBILE (MENU + HORIZONTAL SCROLL) --- */
 @media (max-width: 768px) {
     .navbar { padding: 10px 5%; }
 
-    /* Ativar ícone do menu */
     .menu-icon { 
         display: block; 
         position: relative;
@@ -208,7 +207,6 @@ body {
         transition: 0.3s;
     }
 
-    /* Transformar links em menu lateral */
     .nav-links {
         position: fixed;
         top: 0;
@@ -225,21 +223,35 @@ body {
     .nav-links li { margin: 20px 0; }
     .nav-links li a { margin: 0; font-size: 1.2rem; }
 
-    /* Quando clicar no check, o menu aparece */
     #menu-check:checked ~ .nav-links {
         right: 0;
     }
 
-    /* Animação do ícone para "X" */
-    #menu-check:checked ~ .menu-icon span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
-    #menu-check:checked ~ .menu-icon span:nth-child(2) { opacity: 0; }
-    #menu-check:checked ~ .menu-icon span:nth-child(3) { transform: rotate(-45deg) translate(7px, -7px); }
+    /* MÁGICA DO SCROLL HORIZONTAL */
+    .product-grid {
+        display: flex; /* Muda de grid para flex */
+        overflow-x: auto; /* Ativa scroll lateral */
+        scroll-snap-type: x mandatory; /* Faz o "imã" no card */
+        gap: 20px;
+        padding: 20px 10px;
+        justify-content: flex-start;
+        -webkit-overflow-scrolling: touch; /* Scroll suave no iOS */
+    }
 
-    /* Ajustes de conteúdo */
+    /* Esconde a barra de rolagem para um visual limpo */
+    .product-grid::-webkit-scrollbar {
+        display: none;
+    }
+
+    .product-card {
+        flex: 0 0 280px; /* Largura fixa de cada card no mobile */
+        scroll-snap-align: center; /* Centraliza o card ao deslizar */
+        max-width: none;
+    }
+
     .hero h1 { font-size: 2.2rem; }
-    .hero { background-attachment: scroll; } /* Melhora performance no celular */
+    .hero { background-attachment: scroll; }
     
-    .container { padding: 40px 5%; }
-    .product-grid { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+    .container { padding: 40px 0 40px 5%; } /* Padding lateral ajustado para o scroll */
     .product-image-container { height: 350px; }
 }
