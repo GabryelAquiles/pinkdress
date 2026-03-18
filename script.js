@@ -1,34 +1,25 @@
-// Lógica de Scroll suave
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth'
-        });
-    });
-});
 const menuCheck = document.getElementById('menu-check');
-const navLinks = document.querySelectorAll('.nav-links li a');
+const navLinks = document.querySelectorAll('.nav-links a');
 
-// Fecha o menu mobile quando clica em qualquer link
+// Fecha o menu ao clicar em um link (Início, Coleções, etc)
 navLinks.forEach(link => {
     link.addEventListener('click', () => {
         menuCheck.checked = false;
     });
 });
 
-// Efeito de opacidade na Navbar ao rolar (Dá um ar luxuoso)
-window.addEventListener('scroll', () => {
-    const navbar = document.querySelector('.navbar');
-    if (window.scrollY > 50) {
-        navbar.style.background = 'rgba(255, 255, 255, 0.95)';
-        navbar.style.padding = '10px 8%'; // Dá uma leve "encolhida"
-    } else {
-        navbar.style.background = '#fff';
-        navbar.style.padding = '15px 8%';
-    }
+// Scroll suave para links internos
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        if(this.getAttribute('href').startsWith("#")) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if(target) {
+                target.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+    });
 });
-
 // Exemplo de como você vai buscar os dados do Firebase depois:
 /*
 function carregarProdutos() {
