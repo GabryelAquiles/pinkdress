@@ -6,108 +6,22 @@
     <title>Detalhes do Produto | Pink Dress</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
-    
     <style>
-        /* Container Principal */
-        .product-detail-container { 
-            padding: 120px 8% 80px; 
-            display: grid; 
-            grid-template-columns: 1fr 1fr; 
-            gap: 60px; 
-            align-items: flex-start; 
-        }
+        .product-detail-container { padding: 140px 8% 80px; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: flex-start; }
+        .detail-img img { width: 100%; border-radius: 12px; box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+        .detail-info h1 { font-family: 'Playfair Display'; font-size: 2.8rem; margin-bottom: 15px; }
+        .detail-price { color: var(--primary); font-size: 2rem; font-weight: 700; margin-bottom: 25px; display: block; }
+        .detail-desc { line-height: 1.8; color: var(--text-light); margin-bottom: 30px; font-size: 1.1rem; }
+        
+        .product-actions { display: flex; flex-direction: column; gap: 15px; }
+        .btn-whatsapp { background-color: #25D366; color: white; text-decoration: none; padding: 20px; border-radius: 8px; text-align: center; font-weight: 600; text-transform: uppercase; transition: 0.3s; }
+        .btn-whatsapp:hover { background-color: #128c7e; transform: translateY(-2px); }
+        .btn-back-link { text-align: center; text-decoration: none; color: var(--text-light); font-size: 0.9rem; font-weight: 600; padding: 10px; display: flex; align-items: center; justify-content: center; gap: 8px; transition: 0.3s; }
+        .btn-back-link:hover { color: var(--primary); }
 
-        .detail-img img { 
-            width: 100%; 
-            border-radius: 12px; 
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1); 
-        }
-
-        .detail-info h1 { 
-            font-family: 'Playfair Display'; 
-            font-size: 2.8rem; 
-            margin-bottom: 15px; 
-            color: var(--text-dark);
-        }
-
-        .detail-price { 
-            color: var(--primary); 
-            font-size: 2rem; 
-            font-weight: 700; 
-            margin-bottom: 25px; 
-            display: block; 
-        }
-
-        .detail-desc { 
-            line-height: 1.8; 
-            color: var(--text-light); 
-            margin-bottom: 30px; 
-            font-size: 1.1rem; 
-        }
-
-        /* Grupo de Botões (Ações) */
-        .product-actions {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .btn-whatsapp {
-            background-color: #25D366; /* Verde oficial para confiança */
-            color: white;
-            text-decoration: none;
-            padding: 20px;
-            border-radius: 8px;
-            text-align: center;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: 0.3s;
-        }
-
-        .btn-whatsapp:hover {
-            background-color: #128c7e;
-            transform: translateY(-2px);
-        }
-
-        /* Botão Voltar Estilizado */
-        .btn-back-link {
-            text-align: center;
-            text-decoration: none;
-            color: var(--text-light);
-            font-size: 0.9rem;
-            font-weight: 600;
-            padding: 10px;
-            transition: 0.3s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-        }
-
-        .btn-back-link:hover {
-            color: var(--primary);
-        }
-
-        /* Ajustes Mobile */
         @media (max-width: 768px) {
-            .product-detail-container { 
-                grid-template-columns: 1fr; 
-                padding: 100px 5% 50px; 
-            }
-            
-            .detail-info { text-align: left; }
-            .detail-info h1 { font-size: 2rem; }
-
-            .product-actions {
-                position: sticky;
-                bottom: 20px;
-                background: rgba(255,255,255,0.9);
-                padding: 15px;
-                border-radius: 15px;
-                backdrop-filter: blur(10px);
-                box-shadow: 0 -10px 20px rgba(0,0,0,0.05);
-            }
+            .product-detail-container { grid-template-columns: 1fr; padding: 120px 5% 50px; }
+            .product-actions { position: sticky; bottom: 20px; background: rgba(255,255,255,0.9); padding: 15px; border-radius: 15px; backdrop-filter: blur(10px); box-shadow: 0 -10px 20px rgba(0,0,0,0.05); }
         }
     </style>
 </head>
@@ -119,6 +33,15 @@
             <img src="488578531_2032792070558680_6941908533414280762_n.jpg" alt="Logo" class="logo-img">
             PINK <span class="logo-text-dress">DRESS</span>
         </div>
+        <input type="checkbox" id="menu-check">
+        <label for="menu-check" class="menu-icon">
+            <span></span><span></span><span></span>
+        </label>
+        <ul class="nav-links">
+            <li><a href="index.html">Início</a></li>
+            <li><a href="index.html#vitrine">Coleções</a></li>
+            <li><a href="consultoria.html">Consultoria</a></li>
+        </ul>
     </nav>
 </header>
 
@@ -126,62 +49,33 @@
     <div class="detail-img">
         <img id="main-img" src="" alt="Carregando imagem...">
     </div>
-    
     <div class="detail-info">
         <h1 id="product-title">Carregando...</h1>
         <span class="detail-price" id="product-price"></span>
         <p class="detail-desc" id="product-desc"></p>
-        
         <div class="product-actions">
-            <a href="#" id="whatsapp-btn" target="_blank" class="btn-whatsapp">
-                Consultar via WhatsApp
-            </a>
-            
-            <a href="index.html" class="btn-back-link">
-                ← Voltar para a Vitrine
-            </a>
+            <a href="#" id="whatsapp-btn" target="_blank" class="btn-whatsapp">Consultar via WhatsApp</a>
+            <a href="index.html" class="btn-back-link">← Voltar para a Vitrine</a>
         </div>
     </div>
 </section>
 
 <script>
     const database = {
-        "imperial-gold": {
-            titulo: "Vestido Imperial Gold",
-            preco: "R$ 1.800,00",
-            desc: "Vestido de gala exclusivo em cetim premium com bordados feitos à mão. O brilho que você precisa para uma noite inesquecível.",
-            imagem: "https://images.unsplash.com/photo-1566174053879-31528523f8ae?q=80&w=800"
-        },
-        "silk-blue": {
-            titulo: "Vestido Silk Blue",
-            preco: "R$ 950,00",
-            desc: "Fluidez e sofisticação em seda pura. Ideal para eventos ao ar livre e ocasiões que pedem leveza e movimento.",
-            imagem: "https://images.unsplash.com/photo-1595777457583-95e059d581b8?q=80&w=800"
-        },
-        "black-velvet": {
-            titulo: "Vestido Black Velvet",
-            preco: "R$ 1.200,00",
-            desc: "O clássico que nunca falha. Veludo de alta qualidade com corte acinturado para realçar sua silhueta com elegância.",
-            imagem: "https://www.deliriyou.com.br/app-deliriyou/assets/images/dinamica/produto/457/cor_0/03062-vestido-black-longo-210120-e95854.jpg"
-        }
+        "imperial-gold": { titulo: "Vestido Imperial Gold", preco: "R$ 1.800,00", desc: "Vestido de gala exclusivo em cetim premium com bordados feitos à mão.", imagem: "https://images.unsplash.com/photo-1566174053879-31528523f8ae?q=80&w=800" },
+        "silk-blue": { titulo: "Vestido Silk Blue", preco: "R$ 950,00", desc: "Fluidez e sofisticação em seda pura. Ideal para eventos ao ar livre.", imagem: "https://images.unsplash.com/photo-1595777457583-95e059d581b8?q=80&w=800" },
+        "black-velvet": { titulo: "Vestido Black Velvet", preco: "R$ 1.200,00", desc: "O clássico que nunca falha. Veludo de alta qualidade com corte acinturado.", imagem: "https://www.deliriyou.com.br/app-deliriyou/assets/images/dinamica/produto/457/cor_0/03062-vestido-black-longo-210120-e95854.jpg" }
     };
-
     const params = new URLSearchParams(window.location.search);
     const itemKey = params.get('item');
-
     if (database[itemKey]) {
         const item = database[itemKey];
         document.getElementById('product-title').innerText = item.titulo;
         document.getElementById('product-price').innerText = item.preco;
         document.getElementById('product-desc').innerText = item.desc;
         document.getElementById('main-img').src = item.imagem;
-        
-        const msg = encodeURIComponent(`Olá! Tenho interesse no vestido: ${item.titulo}`);
-        document.getElementById('whatsapp-btn').href = `https://wa.me/5500000000000?text=${msg}`;
-    } else {
-        window.location.href = "index.html"; 
-    }
+        document.getElementById('whatsapp-btn').href = `https://wa.me/5500000000000?text=${encodeURIComponent('Olá! Tenho interesse no: ' + item.titulo)}`;
+    } else { window.location.href = "index.html"; }
 </script>
-
 </body>
 </html>
