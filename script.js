@@ -1,37 +1,36 @@
+// 1. Fechar menu mobile ao clicar em um link
+const menuCheck = document.getElementById('menu-check');
+const links = document.querySelectorAll('.nav-links a');
 
+links.forEach(link => {
+    link.addEventListener('click', () => {
+        if(menuCheck) menuCheck.checked = false;
+    });
+});
+
+// 2. Banco de Dados dos Produtos
 const database = {
     "imperial-gold": {
         titulo: "Vestido Imperial Gold",
         preco: "R$ 1.800,00",
-        desc: "Vestido de gala exclusivo em cetim premium com bordados feitos à mão. O brilho que você precisa para uma noite inesquecível.",
+        desc: "Uma obra-prima em dourado. Este vestido conta com bordados manuais e um caimento imperial que exala luxo.",
         imagem: "https://images.unsplash.com/photo-1566174053879-31528523f8ae?q=80&w=800"
     },
     "silk-blue": {
         titulo: "Vestido Silk Blue",
         preco: "R$ 950,00",
-        desc: "Fluidez e sofisticação em seda pura. Ideal para eventos ao ar livre e ocasiões que pedem leveza e movimento.",
+        desc: "Leveza e frescor em seda azul. Perfeito para festas de debutantes ou eventos ao pôr do sol.",
         imagem: "https://images.unsplash.com/photo-1595777457583-95e059d581b8?q=80&w=800"
     },
     "black-velvet": {
         titulo: "Vestido Black Velvet",
         preco: "R$ 1.200,00",
-        desc: "O clássico que nunca falha. Veludo de alta qualidade com corte acinturado para realçar sua silhueta com elegância.",
-        imagem: "https://images.unsplash.com/photo-1539008835657-9e8e9680fe0a?q=80&w=800"
+        desc: "O poder do preto absoluto. Veludo premium que abraça a silhueta com sofisticação inigualável.",
+        imagem: "https://www.deliriyou.com.br/app-deliriyou/assets/images/dinamica/produto/457/cor_0/03062-vestido-black-longo-210120-e95854.jpg"
     }
 };
 
-// 2. CONTROLE DO MENU MOBILE (Três Retas)
-const menuCheck = document.getElementById('menu-check');
-const navLinks = document.querySelectorAll('.nav-links a');
 
-// Fecha o menu automaticamente ao clicar em qualquer link de navegação
-if (menuCheck) {
-    navLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            menuCheck.checked = false;
-        });
-    });
-}
 
 // 3. LÓGICA DA PÁGINA DE DETALHES (produto.html)
 // Executa apenas se estivermos na página de produto
