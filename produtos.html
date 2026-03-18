@@ -3,50 +3,86 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Coleção | Aquiles Streetwear</title>
+    <title>Detalhes do Produto | Pink Dress</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
     <style>
-        body { background-color: #050505; color: #fff; font-family: 'Inter', sans-serif; margin: 0; }
-        .logo-container { text-align: center; padding-top: 40px; }
-        .logo-main { height: 80px; width: auto; filter: drop-shadow(0 0 5px rgba(255,105,180,0.5)); }
-        .container { padding: 40px 5% 50px; }
-        .section-title { font-family: 'Bebas Neue', sans-serif; font-size: 3rem; text-align: center; margin-bottom: 50px; letter-spacing: 2px; }
-        .section-title span { color: #ff69b4; } /* Cor rosa Pink Dress */
-        .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
-        .product-card { background: #0a0a0a; border: 1px solid #1a1a1a; position: relative; transition: 0.4s ease; }
-        .product-card:hover { border-color: #ff69b4; transform: translateY(-10px); }
-        .product-image { position: relative; width: 100%; overflow: hidden; background: #111; }
-        .product-image img { width: 100%; height: auto; display: block; filter: grayscale(20%); transition: 0.5s; }
-        .product-card:hover .product-image img { filter: grayscale(0%); transform: scale(1.05); }
-        .badge { position: absolute; top: 15px; left: 15px; background: #ff69b4; color: #fff; padding: 5px 15px; font-family: 'Bebas Neue', sans-serif; font-size: 1rem; z-index: 10; }
-        .product-info { padding: 25px; text-align: left; }
-        .product-info h3 { font-family: 'Bebas Neue', sans-serif; font-size: 1.8rem; margin: 0 0 10px; letter-spacing: 1px; }
-        .product-info .desc { color: #a1a1aa; font-size: 0.9rem; margin-bottom: 15px; font-weight: 300; line-height: 1.4; }
-        .product-info .price { color: #fff; font-size: 1.5rem; font-weight: 700; margin-bottom: 20px; display: block; }
-        .btn-buy { display: block; width: 100%; padding: 15px; background: #fff; color: #000; text-align: center; text-decoration: none; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; font-size: 0.9rem; transition: 0.3s; }
-        .btn-buy:hover { background: #ff69b4; color: #fff; }
-        @media (max-width: 768px) { .section-title { font-size: 2.2rem; } }
+        .product-detail-container { padding: 120px 8% 80px; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+        .detail-img img { width: 100%; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        .detail-info h1 { font-family: 'Playfair Display'; font-size: 2.8rem; margin-bottom: 15px; }
+        .detail-price { color: var(--primary); font-size: 2rem; font-weight: 700; margin-bottom: 25px; display: block; }
+        .detail-desc { line-height: 1.8; color: var(--text-light); margin-bottom: 40px; font-size: 1.1rem; }
+        
+        @media (max-width: 768px) {
+            .product-detail-container { grid-template-columns: 1fr; padding: 100px 5% 50px; text-align: center; }
+            .detail-info h1 { font-size: 2rem; }
+        }
     </style>
 </head>
 <body>
-    <div class="logo-container">
-        <img src="488578531_2032792070558680_6941908533414280762_n.jpg" alt="Logo" class="logo-main">
-    </div>
-    <section class="container">
-        <h2 class="section-title">NOSSOS <span>DROPS</span></h2>
-        <div class="product-grid" id="product-list">
-            <article class="product-card">
-                <div class="badge">LIMITADO</div>
-                <div class="product-image"><img src="https://via.placeholder.com/600x800/111/fff?text=OVERSIZED+V1" alt="Camiseta"></div>
-                <div class="product-info">
-                    <h3>Oversized "Arch" Black</h3>
-                    <p class="desc">100% Algodão Premium.</p>
-                    <span class="price">R$ 149,90</span>
-                    <a href="#" class="btn-buy">Ver Disponibilidade</a>
-                </div>
-            </article>
+
+<header>
+    <nav class="navbar">
+        <div class="logo">
+            <img src="488578531_2032792070558680_6941908533414280762_n.jpg" alt="Logo" class="logo-img">
+            PINK <span class="logo-text-dress">DRESS</span>
         </div>
-    </section>
+        <ul class="nav-links">
+            <li><a href="index.html">Voltar para Vitrine</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section class="product-detail-container">
+    <div class="detail-img">
+        <img id="main-img" src="" alt="Carregando imagem...">
+    </div>
+    <div class="detail-info">
+        <h1 id="product-title">Carregando...</h1>
+        <span class="detail-price" id="product-price"></span>
+        <p class="detail-desc" id="product-desc"></p>
+        <a href="#" id="whatsapp-btn" target="_blank" class="btn-primary">Consultar via WhatsApp</a>
+    </div>
+</section>
+
+<script>
+    const database = {
+        "imperial-gold": {
+            titulo: "Vestido Imperial Gold",
+            preco: "R$ 1.800,00",
+            desc: "Vestido de gala exclusivo em cetim premium com bordados feitos à mão. O brilho que você precisa para uma noite inesquecível.",
+            imagem: "https://images.unsplash.com/photo-1566174053879-31528523f8ae?q=80&w=800"
+        },
+        "silk-blue": {
+            titulo: "Vestido Silk Blue",
+            preco: "R$ 950,00",
+            desc: "Fluidez e sofisticação em seda pura. Ideal para eventos ao ar livre e ocasiões que pedem leveza.",
+            imagem: "https://images.unsplash.com/photo-1595777457583-95e059d581b8?q=80&w=800"
+        },
+        "black-velvet": {
+            titulo: "Vestido Black Velvet",
+            preco: "R$ 1.200,00",
+            desc: "O clássico que nunca falha. Veludo de alta qualidade com corte acinturado para realçar sua silhueta.",
+            imagem: "https://images.unsplash.com/photo-1539008835657-9e8e9680fe0a?q=80&w=800"
+        }
+    };
+
+    const params = new URLSearchParams(window.location.search);
+    const itemKey = params.get('item');
+
+    if (database[itemKey]) {
+        const item = database[itemKey];
+        document.getElementById('product-title').innerText = item.titulo;
+        document.getElementById('product-price').innerText = item.preco;
+        document.getElementById('product-desc').innerText = item.desc;
+        document.getElementById('main-img').src = item.imagem;
+        
+        const msg = encodeURIComponent(`Olá! Tenho interesse no vestido: ${item.titulo}`);
+        document.getElementById('whatsapp-btn').href = `https://wa.me/5500000000000?text=${msg}`;
+    } else {
+        window.location.href = "index.html"; 
+    }
+</script>
+
 </body>
 </html>
