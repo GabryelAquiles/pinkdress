@@ -6,7 +6,7 @@
     --text-light: #71717a;
     --bg-white: #ffffff;
     --bg-off: #fafafa;
-    --overlay-pink: rgba(255, 105, 180, 0.15); /* Overlay rosa suave */
+    --overlay-pink: rgba(255, 105, 180, 0.15); 
 }
 
 * {
@@ -21,6 +21,7 @@ body {
     font-family: 'Montserrat', sans-serif;
     scroll-behavior: smooth;
     animation: fadeInPage 0.8s ease-in-out;
+    overflow-x: hidden; /* Evita scroll lateral no celular */
 }
 
 @keyframes fadeInPage {
@@ -33,7 +34,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 8%;
+    padding: 15px 8%;
     background: rgba(255, 255, 255, 0.98);
     border-bottom: 1px solid #eee;
     position: fixed;
@@ -41,33 +42,31 @@ body {
     z-index: 1000;
 }
 
-/* Estilo para a área da logo (imagem + texto) */
 .logo {
-    display: flex; /* Alinha a imagem e o texto lado a lado */
-    align-items: center; /* Centraliza verticalmente */
+    display: flex;
+    align-items: center;
     font-family: 'Playfair Display', serif;
-    font-size: 1.6rem;
+    font-size: 1.4rem;
     font-weight: 700;
-    letter-spacing: 2px;
-    color: var(--text-dark); /* Cor padrão do "PINK" */
+    letter-spacing: 1px;
+    color: var(--text-dark);
 }
 
-/* Estilo para a imagem da logo */
 .logo-img {
-    height: 50px; /* Altura da imagem */
+    height: 45px;
     width: auto;
-    margin-right: 10px; /* Espaçamento entre a imagem e o texto */
-    vertical-align: middle;
+    margin-right: 10px;
 }
 
-/* Estilo para a parte "DRESS" que será rosa */
 .logo-text-dress { 
-    color: var(--primary); /* Aplica a cor rosa */
+    color: var(--primary);
+    margin-left: 5px;
 }
 
 .nav-links {
     display: flex;
     list-style: none;
+    transition: 0.4s ease;
 }
 
 .nav-links li a {
@@ -78,13 +77,13 @@ body {
     text-transform: uppercase;
     letter-spacing: 1px;
     transition: 0.3s;
-    position: relative;
 }
 
 .nav-links li a:hover, .nav-links li a.active { color: var(--primary); }
 
-/* Hamburguer (Apenas Mobile) */
-#menu-check, .menu-icon { display: none; }
+/* Hamburguer Escondido por padrão */
+#menu-check { display: none; }
+.menu-icon { display: none; cursor: pointer; }
 
 /* --- Hero Section --- */
 .hero {
@@ -93,8 +92,8 @@ body {
     align-items: center;
     justify-content: center;
     text-align: center;
-    background: linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 105, 180, 0.1)), 
-                url('https://www.psicologo.com.br/wp-content/uploads/casamento-feliz-um-guia-para-casamentos-felizes-2048x1157.jpg'); /* Coloque sua imagem aqui */
+    background: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 105, 180, 0.1)), 
+                url('https://www.psicologo.com.br/wp-content/uploads/casamento-feliz-um-guia-para-casamentos-felizes-2048x1157.jpg'); 
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -104,13 +103,14 @@ body {
     font-family: 'Playfair Display', serif; 
     font-size: 3.5rem; 
     line-height: 1.2; 
-    margin-bottom: 15px;
+    padding: 0 20px;
 }
 
 .hero h1 span { color: var(--primary); }
 
 .btn-primary {
     display: inline-block;
+    margin-top: 25px;
     padding: 18px 45px;
     background: var(--text-dark);
     color: #fff;
@@ -136,23 +136,20 @@ body {
 
 .product-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 40px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
     justify-items: center;
 }
 
 .product-card { 
     width: 100%; 
     max-width: 326px; 
-    cursor: pointer;
     transition: transform 0.3s ease;
 }
 
-.product-card:hover { transform: translateY(-5px); }
-
 .product-image-container {
     width: 100%;
-    height: 408px;
+    height: 400px;
     overflow: hidden;
     position: relative;
     background-color: #eee;
@@ -165,15 +162,14 @@ body {
     transition: transform 0.6s ease;
 }
 
-.product-card:hover img { transform: scale(1.1); }
+.product-card:hover img { transform: scale(1.08); }
 
-/* Texto "Ver Detalhes" no hover com fundo rosa */
 .product-image-container::after {
     content: 'Ver Detalhes';
     position: absolute;
     top: 0; left: 0;
     width: 100%; height: 100%;
-    background: rgba(255, 105, 180, 0.2); /* Overlay rosa no hover */
+    background: rgba(255, 105, 180, 0.2);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -183,31 +179,67 @@ body {
     letter-spacing: 2px;
     opacity: 0;
     transition: 0.3s;
-    font-weight: 600;
 }
 
 .product-card:hover .product-image-container::after { opacity: 1; }
 
 .product-info { padding: 20px 0; text-align: center; }
-.price-tag { color: var(--primary); font-size: 1.3rem; font-weight: 600; margin-bottom: 5px; display: block; }
-.product-info h3 { font-family: 'Playfair Display', serif; font-size: 1.1rem; letter-spacing: 1px; }
-.category { font-size: 0.75rem; color: var(--text-light); text-transform: uppercase; margin-top: 5px; }
+.price-tag { color: var(--primary); font-size: 1.2rem; font-weight: 600; }
 
-/* --- Responsividade Mobile --- */
+/* --- AJUSTES MOBILE (A MÁGICA ACONTECE AQUI) --- */
 @media (max-width: 768px) {
-    .navbar { padding: 15px 5%; }
+    .navbar { padding: 10px 5%; }
+
+    /* Ativar ícone do menu */
+    .menu-icon { 
+        display: block; 
+        position: relative;
+        z-index: 1100;
+        width: 30px;
+        height: 20px;
+    }
     
-    .menu-icon span { 
-        background: var(--text-dark); 
+    .menu-icon span {
+        display: block;
+        width: 100%;
+        height: 2px;
+        background: var(--text-dark);
+        margin-bottom: 6px;
+        transition: 0.3s;
     }
 
+    /* Transformar links em menu lateral */
     .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 80%;
+        height: 100vh;
         background: #fff;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        box-shadow: -5px 0 15px rgba(0,0,0,0.1);
     }
 
-    .nav-links li a:hover, .nav-links li a.active {
-        color: var(--primary);
+    .nav-links li { margin: 20px 0; }
+    .nav-links li a { margin: 0; font-size: 1.2rem; }
+
+    /* Quando clicar no check, o menu aparece */
+    #menu-check:checked ~ .nav-links {
+        right: 0;
     }
 
+    /* Animação do ícone para "X" */
+    #menu-check:checked ~ .menu-icon span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+    #menu-check:checked ~ .menu-icon span:nth-child(2) { opacity: 0; }
+    #menu-check:checked ~ .menu-icon span:nth-child(3) { transform: rotate(-45deg) translate(7px, -7px); }
+
+    /* Ajustes de conteúdo */
     .hero h1 { font-size: 2.2rem; }
+    .hero { background-attachment: scroll; } /* Melhora performance no celular */
+    
+    .container { padding: 40px 5%; }
+    .product-grid { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+    .product-image-container { height: 350px; }
 }
