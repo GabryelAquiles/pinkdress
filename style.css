@@ -17,32 +17,32 @@ body {
     overflow-x: hidden;
 }
 
-/* --- Navbar (Logo Centralizada no Mobile) --- */
+/* --- Navbar (Design de Grife: Logo <---> Menu) --- */
 .navbar {
     display: flex;
-    flex-direction: column;
+    justify-content: space-between; /* Empurra para os cantos */
     align-items: center;
-    padding: 15px 0;
+    padding: 10px 5%;
     background: #fff;
     border-bottom: 1px solid #f2f2f2;
     position: fixed;
     width: 100%;
+    top: 0;
     z-index: 1000;
 }
 
 .logo {
     display: flex;
-    flex-direction: column;
     align-items: center;
-    text-align: center;
-    margin-bottom: 10px;
+    text-decoration: none;
+    color: var(--text-dark);
     font-family: 'Playfair Display', serif;
-    font-size: 1.8rem;
-    letter-spacing: 3px;
+    font-size: 1.2rem;
+    letter-spacing: 2px;
     text-transform: uppercase;
 }
 
-.logo-img { height: 60px; margin-bottom: 5px; }
+.logo-img { height: 45px; margin-right: 10px; }
 .logo-text-dress { color: var(--primary); }
 
 #menu-check { display: none; }
@@ -51,10 +51,10 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    width: 30px;
-    height: 20px;
+    width: 28px;
+    height: 18px;
     cursor: pointer;
-    margin-bottom: 10px;
+    z-index: 1100;
 }
 
 .menu-icon span {
@@ -69,7 +69,7 @@ body {
 /* Animação do X */
 #menu-check:checked ~ .menu-icon span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
 #menu-check:checked ~ .menu-icon span:nth-child(2) { opacity: 0; }
-#menu-check:checked ~ .menu-icon span:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
+#menu-check:checked ~ .menu-icon span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
 .nav-links {
     display: flex;
@@ -92,67 +92,31 @@ body {
 .nav-links li a { color: var(--text-dark); text-decoration: none; font-weight: 600; text-transform: uppercase; font-size: 0.9rem; }
 
 @media (min-width: 769px) {
-    .navbar { flex-direction: row; justify-content: space-between; padding: 15px 8%; }
-    .logo { flex-direction: row; margin-bottom: 0; font-size: 1.4rem; }
-    .logo-img { height: 50px; margin-right: 15px; margin-bottom: 0; }
+    .navbar { padding: 15px 8%; }
+    .logo { font-size: 1.4rem; }
+    .logo-img { height: 55px; }
     .menu-icon { display: none; }
     .nav-links { position: static; height: auto; width: auto; flex-direction: row; background: transparent; box-shadow: none; }
-    .nav-links li a { font-size: 0.75rem; margin-left: 30px; }
+    .nav-links li a { font-size: 0.75rem; margin-left: 30px; transition: 0.3s; }
+    .nav-links li a:hover { color: var(--primary); }
 }
 
-/* --- Hero --- */
+/* --- Vitrine (Textos em PRETO) --- */
+.product-link { text-decoration: none; color: var(--text-dark); display: block; }
+.product-link:hover { color: var(--text-dark); }
+
+.product-info h3 {
+    color: var(--text-dark);
+    margin: 10px 0 5px;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+}
+
+.price-tag { color: var(--primary); font-size: 1.1rem; font-weight: 700; }
+.category { color: var(--text-light); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; }
+
+/* --- Resto do layout --- */
 .hero { height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; background: linear-gradient(rgba(255,255,255,0.3), rgba(255,105,180,0.1)), url('https://www.psicologo.com.br/wp-content/uploads/casamento-feliz-um-guia-para-casamentos-felizes-2048x1157.jpg'); background-size: cover; background-position: center; }
 .hero h1 { font-family: 'Playfair Display'; font-size: 3.5rem; }
 .hero h1 span { color: var(--primary); }
-
-.btn-primary { display: inline-block; padding: 18px 45px; background: var(--text-dark); color: #fff; text-decoration: none; text-transform: uppercase; font-weight: 600; font-size: 0.8rem; transition: 0.3s; border: none; cursor: pointer; }
-.btn-primary:hover { background: var(--primary); transform: translateY(-3px); }
-
-/* --- Vitrine --- */
-.container { padding: 80px 8%; background: var(--bg-off); }
-.product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-.product-card { background: #fff; border-radius: 8px; overflow: hidden; transition: 0.3s; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
-.product-image-container { height: 400px; overflow: hidden; }
-.product-image-container img { width: 100%; height: 100%; object-fit: cover; transition: 0.6s; }
-.product-card:hover img { transform: scale(1.05); }
-.product-info { padding: 20px; text-align: center; }
-.price-tag { color: var(--primary); font-size: 1.2rem; font-weight: 700; }
-
-/* --- Consultoria --- */
-.consultoria-section { padding: 160px 8% 80px; background: var(--bg-off); }
-.container-flex { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; }
-.form-box { background: #fff; padding: 40px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
-.input-group { display: flex; flex-direction: column; gap: 5px; margin-bottom: 15px; }
-.input-group input { padding: 12px; border: 1px solid #ddd; border-radius: 5px; }
-.full-width { width: 100%; }
-
-@media (max-width: 768px) {
-    .container-flex { grid-template-columns: 1fr; }
-    .hero h1 { font-size: 2rem; }
-    .product-grid { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; padding: 20px; gap: 15px; }
-    .product-card { flex: 0 0 85vw; scroll-snap-align: center; }
-}
-
-/* Remove o azul padrão e o sublinhado dos links dos produtos */
-.product-link {
-    text-decoration: none;
-    color: var(--text-dark); /* Usa o preto (#1a1a1a) que definimos no :root */
-    display: block;
-}
-
-.product-link:hover {
-    color: var(--text-dark); /* Garante que continue preto ao passar o mouse */
-}
-
-.product-info h3 {
-    color: var(--text-dark); /* Nome do vestido em preto */
-    margin: 10px 0 5px;
-    font-family: 'Playfair Display', serif;
-}
-
-.category {
-    color: var(--text-light); /* Categoria em cinza para dar contraste */
-    font-size: 0.8rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
+.btn-primary { display: inline-block; padding: 18px 45px; background: var(--text-dark); color: #fff; text-decoration: none; text-transform: uppercase; font-weight: 600; font-size:
