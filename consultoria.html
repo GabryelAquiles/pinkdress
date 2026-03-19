@@ -12,7 +12,7 @@
 <header>
     <nav class="navbar">
         <div class="logo">
-            <img src="488578531_2032792070558680_6941908533414280762_n.jpg" alt="Pink Dress Logo" class="logo-img">
+            <img src="488578531_2032792070558680_6941908533414280762_n.jpg" alt="Logo" class="logo-img">
             PINK <span class="logo-text-dress">DRESS</span>
         </div>
         <input type="checkbox" id="menu-check">
@@ -27,22 +27,18 @@
     </nav>
 </header>
 
-<section class="consultoria-section">
-    <div class="container-flex">
+<section class="consultoria-section" style="padding: 160px 8% 80px; background: var(--bg-off);">
+    <div class="container-flex" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 60px;">
         <div class="info-box">
-            <h2 class="titulo-vip">Experiência <span class="destaque-pink">VIP</span></h2>
-            <p class="subtitulo">Não vendemos apenas vestidos, curamos o seu momento especial com exclusividade.</p>
-            <div class="beneficios">
-                <div class="item-beneficio"><span class="icon-pink">✦</span><div><strong>Atendimento Exclusivo</strong><p>Hora marcada para total privacidade.</p></div></div>
-                <div class="item-beneficio"><span class="icon-pink">✦</span><div><strong>Análise de Imagem</strong><p>Estudo de biotipo e paleta de cores.</p></div></div>
-            </div>
+            <h2 style="font-family: 'Playfair Display'; font-size: 3rem; margin-bottom: 20px;">Experiência <span style="color: var(--primary);">VIP</span></h2>
+            <p>Não vendemos apenas vestidos, curamos o seu momento especial.</p>
         </div>
-        <div class="form-box">
+        <div class="form-box" style="background: #fff; padding: 40px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
             <h3>Agende sua Sessão</h3>
-            <form action="#" class="consultoria-form">
-                <div class="input-group"><label>Nome Completo</label><input type="text" placeholder="Ex: Maria Silva" required></div>
-                <div class="input-group"><label>E-mail</label><input type="email" placeholder="seu@email.com" required></div>
-                <button type="submit" class="btn-primary full-width">Solicitar Agendamento</button>
+            <form action="#" style="display: flex; flex-direction: column; gap: 15px; margin-top: 20px;">
+                <input type="text" placeholder="Nome Completo" style="padding: 12px; border: 1px solid #ddd; border-radius: 5px;">
+                <input type="email" placeholder="E-mail" style="padding: 12px; border: 1px solid #ddd; border-radius: 5px;">
+                <button type="submit" class="btn-primary">Solicitar Agendamento</button>
             </form>
         </div>
     </div>
@@ -51,6 +47,5 @@
 <footer style="padding: 40px; text-align: center; background: #fff; border-top: 1px solid #eee;">
     <p>&copy; 2026 Pink Dress Fest • Aquiles Softwares</p>
 </footer>
-<script src="script.js"></script>
 </body>
 </html>
